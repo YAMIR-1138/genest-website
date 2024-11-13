@@ -27,18 +27,18 @@
         }
 
         .title-text {
-    font-size: 2.5em;
-    margin: 5px 0;
-    font-family: 'Consolas', monospace;
-}
+            font-size: 2.5em;
+            margin: 5px 0;
+            font-family: 'Consolas', monospace;
+        }
 
-.title-text .ge {
-    color: #f4a261;  /* Orange color */
-}
+        .title-text .ge {
+            color: #f4a261;  /* Orange color */
+        }
 
-.title-text span {
-    color: #2a9d8f;  /* Your existing teal color for 'Nest' */
-}
+        .title-text span {
+            color: #2a9d8f;  /* Teal color for 'Nest' */
+        }
 
         main {
             max-width: 1200px;
@@ -130,6 +130,27 @@
             margin-bottom: 20px;
         }
 
+        .info-section h3 {
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        .info-section ul {
+            margin-bottom: 20px;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+        }
+
+        .working {
+            color: #2a9d8f;
+        }
+
+        .issues {
+            color: #e76f51;
+        }
+
         footer {
             margin-top: 50px;
             background-color: #e9ecef;
@@ -167,7 +188,7 @@
     </header>
 
     <main>
-        <p>Welcome to our internal GeNest Reports platform! Select a genome to explore the nested gene analysis results.</p>
+        <p>Welcome to the GeNest Reports platform! Select a genome to explore the nested gene analysis results.</p>
         
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search reports by organism name...">
@@ -192,22 +213,42 @@
         </div>
 
         <div class="info-section">
-    <h2>About GeNest</h2>
-    <p>GeNest is a tool we developed for systematic identification and analysis of nested genes across genomes. The tool analyzes GTF files to detect and characterize genes that are fully contained within other genes, classifying different types of overlaps and generating detailed reports of these genomic arrangements.</p>
-</div>
+            <h2>About GeNest</h2>
+            <p>GeNest is a tool we developed for systematic identification and analysis of nested genes across genomes. The tool analyzes GTF files to detect and characterize genes that are fully contained within other genes, classifying different types of overlaps and generating detailed reports of these genomic arrangements.</p>
+        </div>
 
-<div class="info-section">
-    <h2>Analysis Reports</h2>
-    <p>Each report contains:</p>
-    <ul>
-        <li>Distribution and statistics of nested gene types (intronic, exonic, TSS/TTS overlaps)</li>
-        <li>Analysis of strand relationships between host and nested genes</li>
-        <li>Host gene size distributions and nested gene positions</li>
-        <li>Interactive tables of all identified nested gene pairs</li>
-        <li>Host genes with multiple nested genes</li>
-        <li>Genes that are both nested and hosts</li>
-    </ul>
-</div>
+        <div class="info-section">
+            <h2>Analysis Reports</h2>
+            <p>Each report contains:</p>
+            <ul>
+                <li>Distribution and statistics of nested gene types (intronic, exonic, TSS/TTS overlaps)</li>
+                <li>Strand relationships between host and nested genes</li>
+                <li>Host gene size distributions and nested gene positions</li>
+                <li>Interactive tables of all identified nested gene pairs</li>
+                <li>Host genes with multiple nested genes</li>
+                <li>Genes that are both nested and hosts</li>
+				<li>Plots!</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h2>GeNest's Technical Status</h2>
+            <h3 class="working">Working Features</h3>
+            <ul>
+                <li>Detailed statistical analysis</li>
+				<li>Support for compressed GTF files</li>
+                <li>Comparative analysis between multiple genomes</li>
+                <li>Low RAM mode for large datasets or weak computers</li>
+                <li>HTML+PDF+CSV Reports</li>
+				
+            </ul>
+            
+            <h3 class="issues">Current Limitations/Bugs</h3>
+            <ul>
+                <li>Ensembl links in reports are currently configured for human genome only. Broken for other organisms.</li>
+                <li>Some features may be slow with very large datasets</li>
+            </ul>
+        </div>
     </main>
 
     <footer>
