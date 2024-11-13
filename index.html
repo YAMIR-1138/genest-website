@@ -3,52 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genest Reports</title>
+    <title>GeNest Reports</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f8f9fa;
+            background-color: #f4f4f9;
             color: #333;
         }
-        .container {
+
+        header {
+            background-color: #264653;
+            color: white;
+            padding: 10px;
             text-align: center;
         }
-        h1 {
+
+        header img {
+            max-height: 150px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .title-text {
             font-size: 2.5em;
-            color: #264653;
+            margin: 5px 0;
+            font-family: 'Consolas', monospace;
         }
-        a {
-            display: block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            text-decoration: none;
+
+        .title-text span {
+            color: #2a9d8f;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-container {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #2a9d8f;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+
+        p {
             font-size: 1.2em;
-            color: white;
-            background-color: #2a9d8f;
-            border-radius: 5px;
-            width: fit-content;
-            margin: 10px auto;
-            transition: 0.3s;
+            color: #555;
+            max-width: 800px;
+            margin: 1em auto;
         }
-        a:hover {
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .report-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #2a9d8f;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .report-button:hover {
             background-color: #21867a;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .organism-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .report-button span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .report-info {
+            font-size: 0.9em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .info-section {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: left;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-section h2 {
+            color: #264653;
+            border-bottom: 2px solid #2a9d8f;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            margin-top: 50px;
+            background-color: #e9ecef;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header img {
+                max-height: 120px;
+            }
+
+            .report-button {
+                min-width: 150px;
+                padding: 15px 20px;
+            }
+
+            .info-section {
+                padding: 15px;
+                margin: 20px auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Genest Analysis Reports</h1>
-        <p>Select a genome report to view:</p>
-        <a href="reports/testmouse1.html">Mouse Report</a>
-        <a href="reports/Caenorhabditis_elegans1.html">C. elegans Report</a>
-        <a href="reports/nov24test6.html">Human Report</a>
-    </div>
+    <header>
+        <img src="lab_logo.png" alt="TGGR Lab Logo">
+        <h1 class="title-text">Ge<span>Nest</span></h1>
+    </header>
+
+    <main>
+        <p>Welcome to our internal GeNest Reports platform! Select a genome to explore the nested gene analysis results.</p>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search reports by organism name...">
+        </div>
+        
+        <div class="button-container">
+            <a href="reports/testmouse1.html" class="report-button" data-organism="mouse">
+                <img src="mouse-icon.svg" alt="Mouse icon" class="organism-icon">
+                <span>Mouse Report</span>
+                <div class="report-info">Mus musculus</div>
+            </a>
+            <a href="reports/Caenorhabditis_elegans1.html" class="report-button" data-organism="elegans worm nematode">
+                <img src="worm-icon.svg" alt="Worm icon" class="organism-icon">
+                <span>C. elegans Report</span>
+                <div class="report-info">Caenorhabditis elegans</div>
+            </a>
+            <a href="reports/nov24test6.html" class="report-button" data-organism="human homo sapiens">
+                <img src="human-icon.svg" alt="Human icon" class="organism-icon">
+                <span>Human Report</span>
+                <div class="report-info">Homo sapiens</div>
+            </a>
+        </div>
+
+        <div class="info-section">
+    <h2>About GeNest</h2>
+    <p>GeNest (v0.13.14) is a specialized tool developed by the TGGR lab for systematic identification and analysis of nested genes across genomes. The tool analyzes GTF files to detect and characterize genes that are fully contained within other genes, classifying different types of overlaps and generating detailed reports of these genomic arrangements.</p>
+</div>
+
+<div class="info-section">
+    <h2>Analysis Reports</h2>
+    <p>Each report contains:</p>
+    <ul>
+        <li>Distribution and statistics of nested gene types (intronic, exonic, TSS/TTS overlaps)</li>
+        <li>Analysis of strand relationships between host and nested genes</li>
+        <li>Host gene size distributions and nested gene positions</li>
+        <li>Interactive tables of all identified nested gene pairs</li>
+        <li>Host genes with multiple nested genes</li>
+        <li>Genes that are both nested and hosts</li>
+    </ul>
+</div>
+    </main>
+
+    <footer>
+        <p>© TGGR © | Internal Use Only, So Very Secret</p>
+    </footer>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.report-button').forEach(button => {
+                const searchText = button.dataset.organism.toLowerCase();
+                const buttonText = button.textContent.toLowerCase();
+                if (searchText.includes(searchTerm) || buttonText.includes(searchTerm)) {
+                    button.classList.remove('hidden');
+                } else {
+                    button.classList.add('hidden');
+                }
+            });
+        });
+
+        // Loading state for buttons
+        document.querySelectorAll('.report-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.opacity = '0.7';
+                this.innerHTML += '<div class="loading">Loading...</div>';
+            });
+        });
+    </script>
 </body>
 </html>
-
