@@ -33,23 +33,23 @@
         }
 
         .title-text .ge {
-            color: #f4a261;  /* Orange color */
+            color: #f4a261;
         }
 
         .title-text span {
-            color: #2a9d8f;  /* Teal color for 'Nest' */
+            color: #2a9d8f;
         }
 
         main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            text-align: center;
         }
 
         .search-container {
             margin: 20px auto;
             max-width: 500px;
+            text-align: center;
         }
 
         #searchInput {
@@ -67,50 +67,116 @@
             color: #555;
             max-width: 800px;
             margin: 1em auto;
+            text-align: center;
         }
 
-        .button-container {
+        /* Featured reports styling */
+        .featured-reports {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin: 30px 0;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .report-button {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 30px;
-            background-color: #2a9d8f;
-            color: white;
-            text-decoration: none;
+            padding: 20px;
+            background-color: white;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #264653;
+            transition: transform 0.3s ease;
             min-width: 200px;
         }
 
         .report-button:hover {
-            background-color: #21867a;
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .organism-icon {
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             margin-bottom: 10px;
-        }
-
-        .report-button span {
-            font-size: 1.2em;
-            font-weight: bold;
         }
 
         .report-info {
             font-size: 0.9em;
-            margin-top: 5px;
-            opacity: 0.9;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Additional reports list styling */
+        .reports-list {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .reports-list h3 {
+            color: #264653;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2a9d8f;
+        }
+
+        .report-link {
+            display: block;
+            padding: 15px;
+            margin: 5px 0;
+            color: #2a9d8f;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .report-link:hover {
+            background-color: #f5f5f5;
+            padding-left: 20px;
+        }
+
+        .scientific-name {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Terms glossary styling */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .term-item {
+            margin-bottom: 20px;
+        }
+
+        .term-item h4 {
+            color: #2a9d8f;
+            margin: 0 0 5px 0;
+        }
+
+        .term-item p {
+            font-size: 0.9em;
+            margin: 0;
+            color: #666;
+            text-align: left;
         }
 
         .info-section {
@@ -160,27 +226,29 @@
             color: #666;
         }
 
-        .hidden {
-            display: none;
-        }
-
         @media (max-width: 768px) {
             header img {
                 max-height: 120px;
             }
 
-            .report-button {
-                min-width: 150px;
-                padding: 15px 20px;
+            .featured-reports {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .info-section {
+            .report-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .info-section, .reports-list {
                 padding: 15px;
-                margin: 20px auto;
+                margin: 20px 10px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="lab_logo.png" alt="TGGR Lab Logo">
@@ -193,23 +261,124 @@
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search reports by organism name...">
         </div>
-        
-        <div class="button-container">
-            <a href="reports/testmouse1.html" class="report-button" data-organism="mouse">
-                <img src="mouse-icon.svg" alt="Mouse icon" class="organism-icon">
-                <span>Mouse Report</span>
-                <div class="report-info">Mus musculus</div>
-            </a>
-            <a href="reports/Caenorhabditis_elegans1.html" class="report-button" data-organism="elegans worm nematode">
-                <img src="worm-icon.svg" alt="Worm icon" class="organism-icon">
-                <span>C. elegans Report</span>
-                <div class="report-info">Caenorhabditis elegans</div>
-            </a>
-            <a href="reports/nov24test6.html" class="report-button" data-organism="human homo sapiens">
+
+        <!-- Featured reports with logos -->
+        <div class="featured-reports">
+            <a href="reports/V2/human_new.html" class="report-button" target="_blank">
                 <img src="human-icon.svg" alt="Human icon" class="organism-icon">
                 <span>Human Report</span>
                 <div class="report-info">Homo sapiens</div>
             </a>
+            <a href="reports/V2/mouse_new.html" class="report-button" target="_blank">
+                <img src="mouse-icon.svg" alt="Mouse icon" class="organism-icon">
+                <span>Mouse Report</span>
+                <div class="report-info">Mus musculus</div>
+            </a>
+            <a href="reports/V2/Caenorhabditis_elegans_forwebsite.html" class="report-button" target="_blank">
+                <img src="worm-icon.svg" alt="Worm icon" class="organism-icon">
+                <span>C. elegans Report</span>
+                <div class="report-info">Caenorhabditis elegans</div>
+            </a>
+        </div>
+
+        <!-- Additional reports list -->
+        <div class="reports-list">
+            <h3>Additional Species Reports</h3>
+            <a href="reports/V2/Drosophila_melanogaster.html" class="report-link" target="_blank">
+                Fruit Fly <span class="scientific-name">(Drosophila melanogaster)</span>
+            </a>
+            <a href="reports/V2/Rattus_norvegicus.html" class="report-link" target="_blank">
+                Rat <span class="scientific-name">(Rattus norvegicus)</span>
+            </a>
+            <a href="reports/V2/zebra_fish_website.html" class="report-link" target="_blank">
+                Zebrafish <span class="scientific-name">(Danio rerio)</span>
+            </a>
+            <a href="reports/V2/Oryctolagus_cuniculus.html" class="report-link" target="_blank">
+                Rabbit <span class="scientific-name">(Oryctolagus cuniculus)</span>
+            </a>
+            <a href="reports/V2/cat.html" class="report-link" target="_blank">
+                Cat <span class="scientific-name">(Felis catus)</span>
+            </a>
+            <a href="reports/V2/Saccharomyces_cerevisiae.html" class="report-link" target="_blank">
+                Yeast <span class="scientific-name">(Saccharomyces cerevisiae)</span>
+            </a>
+        </div>
+
+        <div class="info-section">
+            <h2>Report Terms Glossary</h2>
+            <div class="terms-grid">
+                <div class="term-card">
+                    <h3>Gene Pair Metrics</h3>
+                    <div class="term-item">
+                        <h4>Total Gene Pairs with Overlap</h4>
+                        <p>The total number of unique gene pairs where one gene (nested) is completely contained within another gene (host).</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>Unique Host Genes</h4>
+                        <p>The number of genes that contain at least one nested gene within their boundaries.</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>Unique Nested Genes</h4>
+                        <p>The total number of distinct genes that are found nested within other genes.</p>
+                    </div>
+                </div>
+
+                <div class="term-card">
+                    <h3>Nested Gene Types</h3>
+                    <div class="term-item">
+                        <h4>True Nested Genes</h4>
+                        <p>Intronic or exonic overlap nested genes - represents genes that truly fit the nested gene definition.</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>Intronic Nested Genes</h4>
+                        <p>Genes that are completely contained within the introns of their host genes.</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>Exonic Overlap Nested Genes</h4>
+                        <p>Genes that overlap with exons of their host genes while being completely contained within the host gene boundaries.</p>
+                    </div>
+                </div>
+
+                <div class="term-card">
+                    <h3>Other Overlaps</h3>
+                    <div class="term-item">
+                        <h4>Exact Exon Match</h4>
+                        <p>Cases where the nested gene's exons exactly match some of the host gene's exons, potentially indicating alternative splicing events.</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>TSS Overlap</h4>
+                        <p>Nested genes that overlap with the Transcription Start Site of their host genes.</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>TTS Overlap</h4>
+                        <p>Nested genes that overlap with the Transcription Termination Site of their host genes.</p>
+                    </div>
+                </div>
+
+                <div class="term-card">
+                    <h3>Strand Relationships</h3>
+                    <div class="term-item">
+                        <h4>Same Strand Relationships</h4>
+                        <p>Host-nested gene pairs where both genes are on the same DNA strand.</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>Opposite Strand Relationships</h4>
+                        <p>Host-nested gene pairs where the genes are on opposite DNA strands.</p>
+                    </div>
+                </div>
+
+                <div class="term-card">
+                    <h3>Percentages and Complex Cases</h3>
+                    <div class="term-item">
+                        <h4>Percentage of Total Overlapping Genes</h4>
+                        <p>The percentage of all protein-coding genes that are involved in nested gene relationships.</p>
+                    </div>
+                    <div class="term-item">
+                        <h4>Nested in Nested Genes</h4>
+                        <p>Genes that serve both as nested genes and as hosts for other nested genes, creating complex nested arrangements.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="info-section">
@@ -227,7 +396,7 @@
                 <li>Interactive tables of all identified nested gene pairs</li>
                 <li>Host genes with multiple nested genes</li>
                 <li>Genes that are both nested and hosts</li>
-				<li>Plots!</li>
+                <li>Plots!</li>
             </ul>
         </div>
 
@@ -236,16 +405,15 @@
             <h3 class="working">Working Features</h3>
             <ul>
                 <li>Detailed statistical analysis</li>
-				<li>Support for compressed GTF files</li>
+                <li>Support for compressed GTF files</li>
                 <li>Comparative analysis between multiple genomes</li>
                 <li>Low RAM mode for large datasets or weak computers</li>
                 <li>HTML+PDF+CSV Reports</li>
-				
             </ul>
             
             <h3 class="issues">Current Limitations/Bugs</h3>
             <ul>
-                <li>Ensembl links in reports are currently configured for human genome only. Broken for other organisms.</li>
+                <li>Ensembl links in reports may be broken sometimes.</li>
                 <li>Some features may be slow with very large datasets</li>
             </ul>
         </div>
@@ -256,25 +424,19 @@
     </footer>
 
     <script>
-        // Search functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
+            
+            // Search in featured reports
             document.querySelectorAll('.report-button').forEach(button => {
-                const searchText = button.dataset.organism.toLowerCase();
                 const buttonText = button.textContent.toLowerCase();
-                if (searchText.includes(searchTerm) || buttonText.includes(searchTerm)) {
-                    button.classList.remove('hidden');
-                } else {
-                    button.classList.add('hidden');
-                }
+                button.style.display = buttonText.includes(searchTerm) ? '' : 'none';
             });
-        });
-
-        // Loading state for buttons
-        document.querySelectorAll('.report-button').forEach(button => {
-            button.addEventListener('click', function() {
-                this.style.opacity = '0.7';
-                this.innerHTML += '<div class="loading">Loading...</div>';
+            
+            // Search in additional reports
+            document.querySelectorAll('.report-link').forEach(link => {
+                const linkText = link.textContent.toLowerCase();
+                link.style.display = linkText.includes(searchTerm) ? 'block' : 'none';
             });
         });
     </script>
