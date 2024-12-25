@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports - GeNest</title>
+    <title>Request Report - GeNest</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation header -->
     <nav class="nav-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
@@ -24,35 +25,60 @@
     </nav>
 
     <header>
-        <h1>Available Reports</h1>
-        <p>Browse and access all available nested gene analysis reports</p>
+        <h1>Request a Report</h1>
+        <p>Select a species and genome version to request a new report</p>
     </header>
 
     <main>
-        <div class="search-section">
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search by species name, assembly, or category...">
-            </div>
-            <div class="filter-container">
-                <select id="categoryFilter">
-                    <option value="">All Categories</option>
-                    <option value="mammal">Mammals</option>
-                    <option value="fish">Fish</option>
-                    <option value="insect">Insects</option>
-                    <option value="bird">Birds</option>
-                    <option value="reptile">Reptiles</option>
-                    <option value="other">Other</option>
-                </select>
-                <select id="sortBy">
-                    <option value="date">Sort by Date</option>
-                    <option value="species">Sort by Species</option>
-                    <option value="category">Sort by Category</option>
-                </select>
-            </div>
+        <div class="request-form">
+            <form action="https://formspree.io/f/xeoooyka" method="POST">
+                <div class="form-group">
+                    <label for="species">Species:</label>
+                    <select id="species" name="species" required>
+                        <option value="">Select a species</option>
+                        <!-- Will be populated from Species.csv -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="assembly">Genome Assembly:</label>
+                    <select id="assembly" name="assembly" required disabled>
+                        <option value="">First select a species</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="otherSpecies">Other Species (if not listed above):</label>
+                    <input type="text" id="otherSpecies" name="otherSpecies" placeholder="Scientific name">
+                </div>
+
+                <div class="form-group">
+                    <label for="otherAssembly">Other Assembly (if not listed above):</label>
+                    <input type="text" id="otherAssembly" name="otherAssembly" placeholder="Assembly name or version">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Additional Comments:</label>
+                    <textarea id="comments" name="comments" rows="4" placeholder="Any specific requirements or information..."></textarea>
+                </div>
+
+                <button type="submit" class="button">Submit Request</button>
+            </form>
         </div>
 
-        <div class="reports-list">
-            <!-- Reports will be dynamically inserted here -->
+        <div class="info-section">
+            <h2>About Report Generation</h2>
+            <ul>
+                <li>Reports are generated using the latest version of GeNest</li>
+                <li>Processing time varies depending on genome size</li>
+                <li>You will receive an email when your report is ready</li>
+                <li>All data is sourced from Ensembl</li>
+            </ul>
         </div>
     </main>
 
@@ -60,7 +86,7 @@
         <p>© TGGR © | Internal Use Only, So Very Secret.</p>
     </footer>
 
-    <script src="js/config.js"></script>
-    <script src="js/reports.js"></script>
+    <script src="js/species-handler.js"></script>
+    <script src="js/request.js"></script>
 </body>
 </html> 
