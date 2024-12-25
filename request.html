@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Report - GeNest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation header -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="lab_logo.png" alt="TGGR Lab Logo">
+                <h2>GeNest</h2>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="reports.html">All Reports</a>
+                <a href="request.html">Request Report</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Request a Report</h1>
+        <p>Select a species and genome version to request a new report</p>
+    </header>
+
+    <main>
+        <div class="request-form">
+            <form id="reportRequest" onsubmit="submitRequest(event)">
+                <div class="form-group">
+                    <label for="species">Species:</label>
+                    <select id="species" required>
+                        <option value="">Select a species</option>
+                        <!-- Will be populated from Species.csv -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="assembly">Genome Assembly:</label>
+                    <select id="assembly" required disabled>
+                        <option value="">First select a species</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="otherSpecies">Other Species (if not listed above):</label>
+                    <input type="text" id="otherSpecies" placeholder="Scientific name">
+                </div>
+
+                <div class="form-group">
+                    <label for="otherAssembly">Other Assembly (if not listed above):</label>
+                    <input type="text" id="otherAssembly" placeholder="Assembly name or version">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Additional Comments:</label>
+                    <textarea id="comments" rows="4" placeholder="Any specific requirements or information..."></textarea>
+                </div>
+
+                <button type="submit" class="button">Submit Request</button>
+            </form>
+        </div>
+
+        <div class="info-section">
+            <h2>About Report Generation</h2>
+            <ul>
+                <li>Reports are generated using the latest version of GeNest</li>
+                <li>Processing time varies depending on genome size</li>
+                <li>You will receive an email when your report is ready</li>
+                <li>All data is sourced from Ensembl</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>© TGGR © | Internal Use Only, So Very Secret.</p>
+    </footer>
+
+    <script src="js/ensembl-api.js"></script>
+    <script src="js/species-handler.js"></script>
+    <script src="js/request.js"></script>
+    <script>
+        // Fetch available species from Ensembl
+        async function fetchSpecies() {
+            try {
+                const response = await fetch('https://rest.ensembl.org/info/species?content-type=application/json');
+                const data = await response.json();
+                const speciesSelect = document.getElementById('species');
+                
+                data.species.forEach(species => {
+                    const option = document.createElement('option');
+                    option.value = species.name;
+                    option.textContent = species.display_name;
+                    speciesSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching species:', error);
+            }
+        }
+
+        // Fetch assemblies when species is selected
+        document.getElementById('species').addEventListener('change', async function(e) {
+            const assemblySelect = document.getElementById('assembly');
+            assemblySelect.disabled = true;
+            assemblySelect.innerHTML = '<option value="">Loading...</option>';
+
+            try {
+                const response = await fetch(`https://rest.ensembl.org/info/assembly/${e.target.value}?content-type=application/json`);
+                const data = await response.json();
+                
+                assemblySelect.innerHTML = '';
+                const option = document.createElement('option');
+                option.value = data.assembly_name;
+                option.textContent = data.assembly_name;
+                assemblySelect.appendChild(option);
+                assemblySelect.disabled = false;
+            } catch (error) {
+                console.error('Error fetching assembly:', error);
+                assemblySelect.innerHTML = '<option value="">Error loading assemblies</option>';
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', fetchSpecies);
+    </script>
+</body>
+</html> 

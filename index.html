@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeNest - Nested Gene Analysis Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="lab_logo.png" alt="TGGR Lab Logo">
+                <h2>GeNest</h2>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="reports.html">All Reports</a>
+                <a href="request.html">Request Report</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="title-text"><span class="ge">Ge</span><span>Nest</span></h1>
+        <p>Advanced Nested Gene Analysis Platform</p>
+    </header>
+
+    <main>
+        <div class="intro-section">
+            <h2>About GeNest</h2>
+            <p>Welcome to the GeNest Report Repository - a collection of nested gene analysis reports. These reports are generated using GeNest, a computational tool we designed for systematic identification and analysis of nested genes across genomes.</p>
+            <p>GeNest analyzes genomic data to detect and characterize genes that are contained within other genes, providing insights into genomic organization and complexity. Each report in this repository contains statistical analysis, visualizations, and downloadable datasets.</p>
+        </div>
+
+        <section class="featured-section">
+            <h2>Featured Reports</h2>
+            <div class="featured-reports">
+                <a href="reports/report-frame.html?report=V2/human_new.html" class="report-button">
+                    <img src="images/icons/human-icon.svg" alt="Human icon" class="organism-icon">
+                    <span>Human Report</span>
+                    <div class="report-info">Homo sapiens</div>
+                </a>
+                <a href="reports/report-frame.html?report=V2/mouse_new.html" class="report-button">
+                    <img src="images/icons/mouse-icon.svg" alt="Mouse icon" class="organism-icon">
+                    <span>Mouse Report</span>
+                    <div class="report-info">Mus musculus</div>
+                </a>
+                <a href="reports/report-frame.html?report=V2/Caenorhabditis_elegans_forwebsite.html" class="report-button">
+                    <img src="images/icons/worm-icon.svg" alt="Worm icon" class="organism-icon">
+                    <span>Nematode Report</span>
+                    <div class="report-info">Caenorhabditis elegans</div>
+                </a>
+            </div>
+            <div class="section-footer">
+                <a href="reports.html" class="button">View All Reports</a>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Analysis Reports Content</h2>
+            <p>Each report includes:</p>
+            <ul>
+                <li>Distribution and statistics of nested gene types</li>
+                <li>Strand relationships between host and nested genes</li>
+                <li>Host gene size distributions and nested gene positions</li>
+                <li>Interactive tables of all identified nested gene pairs</li>
+                <li>Host genes with multiple nested genes</li>
+                <li>Genes that are both nested and hosts</li>
+                <li>Interactive plots and visualizations</li>
+            </ul>
+        </section>
+
+        <section class="status-section">
+            <h2>Current Status of the program</h2>
+            <div class="status-grid">
+                <div class="status-card working">
+                    <h3>Available Features</h3>
+                    <ul>
+                        <li>Detailed statistical analysis</li>
+                        <li>Support for compressed GTF files</li>
+                        <li>Comparative analysis between multiple genomes</li>
+                        <li>HTML+PDF+CSV Reports</li>
+                    </ul>
+                </div>
+                <div class="status-card issues">
+                    <h3>Known Limitations</h3>
+                    <ul>
+                        <li>Some Ensembl links may be inactive</li>
+                        <li>Performance may be reduced with very large datasets</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2>Key Features</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>Gene Detection</h3>
+                    <ul>
+                        <li>Nested gene identification across the entire genome</li>
+                        <li>Multiple overlap type detection</li>
+                        <li>Strand relationship analysis</li>
+                        <li>Host-nested gene mapping</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Processing Features</h3>
+                    <ul>
+                        <li>Multi-core parallel processing</li>
+                        <li>Memory-efficient analysis</li>
+                        <li>Support for large genomes</li>
+                        <li>Automated assembly detection</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Analysis Tools</h3>
+                    <ul>
+                        <li>Statistical visualization</li>
+                        <li>Overlap pattern analysis</li>
+                        <li>Comparative genomics</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>Output Options</h3>
+                    <ul>
+                        <li>Interactive HTML reports</li>
+                        <li>Downloadable datasets</li>
+                        <li>Publication-ready figures</li>
+                        <li>Custom analysis options</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="about.html" class="button">Learn More</a>
+            </div>
+        </section>
+
+        <section class="request-section">
+            <h2>Need a Custom Analysis?</h2>
+            <p>Submit a request for your species of interest</p>
+            <a href="request.html" class="button">Request Report</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© TGGR © | Internal Use Only, So Very Secret.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

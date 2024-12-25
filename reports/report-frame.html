@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeNest Report</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <nav class="nav-header">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../lab_logo.png" alt="TGGR Lab Logo">
+                <h2>GeNest</h2>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../reports.html">All Reports</a>
+                <a href="../request.html">Request Report</a>
+                <a href="../glossary.html">Glossary</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="report-frame">
+        <iframe id="report-content"></iframe>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const reportPath = urlParams.get('report');
+        
+        if (reportPath) {
+            const iframe = document.getElementById('report-content');
+            iframe.src = reportPath;
+            
+            // Adjust iframe height to match content
+            iframe.onload = function() {
+                try {
+                    const height = iframe.contentWindow.document.body.scrollHeight;
+                    iframe.style.height = height + 'px';
+                    
+                    // Update page title
+                    const reportTitle = iframe.contentWindow.document.title;
+                    document.title = reportTitle + ' - GeNest';
+                } catch (e) {
+                    console.error('Error adjusting iframe:', e);
+                }
+            };
+        }
+    </script>
+</body>
+</html> 

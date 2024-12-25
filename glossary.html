@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossary - GeNest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="lab_logo.png" alt="TGGR Lab Logo">
+                <h2>GeNest</h2>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="reports.html">All Reports</a>
+                <a href="request.html">Request Report</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Glossary</h1>
+        <p>Key terms and definitions in nested gene analysis</p>
+    </header>
+
+    <main>
+        <div class="glossary-container">
+            <div class="search-box">
+                <input type="text" id="searchTerms" placeholder="Search terms...">
+            </div>
+
+            <div class="terms-grid">
+                <div class="term-card">
+                    <h3>Gene Pair Metrics</h3>
+                    <p>The total number of unique gene pairs where one gene (nested) is completely contained within another gene (host).</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Host Genes</h3>
+                    <p>Genes that contain at least one nested gene within their boundaries.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Nested Genes</h3>
+                    <p>Genes that are found completely within the boundaries of other genes.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>True Nested Genes</h3>
+                    <p>Intronic or exonic overlap nested genes - represents genes that truly fit the nested gene definition.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Nested Gene</h3>
+                    <p>A gene that is located entirely within another gene (the host gene), including being located within its introns.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Host Gene</h3>
+                    <p>A gene that contains another gene (the nested gene) within its genomic boundaries.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Intronic Nested Gene</h3>
+                    <p>A nested gene that is located entirely within the introns of its host gene.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Exonic Overlap</h3>
+                    <p>When a nested gene overlaps with the exons of its host gene, potentially affecting protein coding regions.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>TSS/TTS Overlap</h3>
+                    <p>When the transcription start site (TSS) or transcription termination site (TTS) of one gene overlaps with another gene.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Complex Overlap</h3>
+                    <p>Multiple or complex patterns of gene overlap, potentially involving more than two genes or multiple overlap types.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Strand Relationship</h3>
+                    <p>The relative orientation (sense/antisense) of nested genes compared to their host genes.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Gene Density</h3>
+                    <p>The number of genes per unit length of genomic sequence, which can affect nesting frequency.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>GTF/GFF Files</h3>
+                    <p>Standard file formats used to describe gene features in genomic sequences, including gene locations and structures.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Nesting Frequency</h3>
+                    <p>The proportion of genes in a genome that are nested within other genes.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Gene Structure</h3>
+                    <p>The organization of a gene, including exons, introns, and regulatory regions.</p>
+                </div>
+
+                <div class="term-card">
+                    <h3>Genome Assembly</h3>
+                    <p>A specific version of a genome's DNA sequence, used as reference for gene identification and analysis.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© TGGR © | Internal Use Only, So Very Secret.</p>
+    </footer>
+
+    <script src="js/glossary.js"></script>
+</body>
+</html> 

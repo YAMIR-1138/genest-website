@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - GeNest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-header">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="lab_logo.png" alt="TGGR Lab Logo">
+                <h2>GeNest</h2>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="reports.html">All Reports</a>
+                <a href="request.html">Request Report</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Available Reports</h1>
+        <p>Browse and access all available nested gene analysis reports</p>
+    </header>
+
+    <main>
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search by species name, assembly, or category...">
+            </div>
+            <div class="filter-container">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="mammal">Mammals</option>
+                    <option value="fish">Fish</option>
+                    <option value="insect">Insects</option>
+                    <option value="bird">Birds</option>
+                    <option value="reptile">Reptiles</option>
+                    <option value="other">Other</option>
+                </select>
+                <select id="sortBy">
+                    <option value="date">Sort by Date</option>
+                    <option value="species">Sort by Species</option>
+                    <option value="category">Sort by Category</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="reports-list">
+            <!-- Reports will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>© TGGR © | Internal Use Only, So Very Secret.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html> 
